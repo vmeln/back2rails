@@ -1,13 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
+first:
+  title: Title for product 1
   description: MyText
   image_url: MyString
   price: 9.99
 
 two:
-  title: MyString
+  title: Title for product 2
   description: MyText
   image_url: MyString
   price: 9.99
