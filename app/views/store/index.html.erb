@@ -1,0 +1,14 @@
+<h1 class="caption">Product List</h1>
+<% if notice %>
+    <p id="warning"><%= notice %></p>
+<% end %>
+
+<% for product in @products do %>
+    <div class="row col-md-8">
+        <p class="lead"><%= product.title %></p>
+        <%= image_tag(product.image_url) %>
+        <em><%= sanitize product.description %></em>
+        <em><strong>Price is: </strong><%= product.price %></em>
+        <hr/>
+    </div>
+<% end %>

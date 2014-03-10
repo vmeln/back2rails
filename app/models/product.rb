@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
   validates :title, :uniqueness => true
 
   # TODO: add Image Url validation after image uploading
+
+  default_scope :order => 'title'
 end
