@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
 
   # TODO: add Image Url validation after image uploading
 
-  default_scope :order => 'title'
+  default_scope -> { order('title') }
 
   has_many :line_items
   before_destroy :enssure_not_referenced_by_any_line_item

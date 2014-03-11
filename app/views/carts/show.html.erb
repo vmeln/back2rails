@@ -1,10 +1,14 @@
-<p id="bg-warning"><%= notice %></p>
+<% if notice %>
+  <p id="bg-warning"><%= notice %></p>
+  <hr />
+<% end %>
 <table class="table">
   <% @cart.line_items.each do |item|%>
     <tr>
     	<td><%= item.quantity %>&times;</td>
     	<td><%= item.product.title %> </td>
     	<td><%= number_to_currency(item.total_price) %></td>
+      <td><%= button_to 'X', item, :method => :delete, :confirt => "Are you sure to delete #{item.product.title}?", :class => 'btn btn-danger'  %></td>
     </tr>
   <% end %>
   <tr>
