@@ -1,0 +1,15 @@
+<% if notice %>
+  <p id="bg-warning"><%= notice %></p>
+  <hr />
+<% end %>
+<% if cart.line_items.count > 0 %>
+<table class="table">
+  <%= render(cart.line_items) %>
+  <tr>
+  	<td colspan="2">Total</td>
+  	<td><%= number_to_currency(cart.total_price) %></td>
+  </tr>
+</table>
+
+<%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger', :remote => true %>
+<% end %>

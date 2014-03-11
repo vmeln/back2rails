@@ -11,7 +11,7 @@
         <%= image_tag(product.image_url) %>
         <em><%= sanitize product.description %></em>
         <em><strong>Price is: </strong><%= product.price %></em>
-        <%= button_to 'Add to cart', line_items_path(:product_id => product), class: 'inline' %>
+        <%= button_to 'Add to cart', line_items_path(:product_id => product), class: 'btn btn-default', :remote => true %>
         <hr/>
     </div>
 <% end %>

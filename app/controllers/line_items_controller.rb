@@ -7,7 +7,8 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(@line_item.cart) }
+        format.html { redirect_to(store_url) }
+        format.js { @current_item = line_item }
         format.xml {render :xml => @line_item, :status => :created, :location => @line_item }
       else
         format.html { render action: 'new' }
@@ -20,6 +21,6 @@ class LineItemsController < ApplicationController
     line_item = LineItem.find(params[:id])
     line_item.destroy!
 
-    redirect_to cart_path(current_cart), :notice => "#{line_item.product.title} was successfully deleted"
+    redirect_to store_url, :notice => "#{line_item.product.title} was successfully deleted"
   end
 end
