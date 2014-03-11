@@ -1,0 +1,8 @@
+<p id="bg-warning"><%= notice %></p>
+<ul class='list-unstyled'>
+  <% @cart.line_items.each do |item|%>
+    <li><%= item.quantity %> &times; <%= item.product.title %></li>
+  <% end %>
+</ul>
+
+<%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-danger' %>

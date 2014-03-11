@@ -1,6 +1,8 @@
 <h1 class="caption">Product List</h1>
 <% if notice %>
-    <p id="warning"><%= notice %></p>
+    <p class="bg-warning">
+        <%= notice %>
+    </p>
 <% end %>
 
 <% for product in @products do %>
@@ -9,6 +11,7 @@
         <%= image_tag(product.image_url) %>
         <em><%= sanitize product.description %></em>
         <em><strong>Price is: </strong><%= product.price %></em>
+        <%= button_to 'Add to cart', line_items_path(:product_id => product), class: 'inline' %>
         <hr/>
     </div>
 <% end %>
