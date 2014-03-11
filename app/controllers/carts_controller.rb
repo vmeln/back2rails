@@ -58,7 +58,6 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(store_url, :notice => 'Your cart is empty') }
-      format.js { redirect_to() }
       format.xml { head :ok }
     end
   end
