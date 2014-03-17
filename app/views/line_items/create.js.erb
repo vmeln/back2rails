@@ -1,4 +1,10 @@
-$('#cart').html('<%= escape_javascript(render(@cart)) %>');
+$('#cart').html("<%= escape_javascript(render(@cart)) %>");
+
+// 2 - Count of rows with one item
+if ($('#cart table tr').length == 2){
+	$('#cart').show('blind', 1000);
+}
+
 
 $('#current_item')
 	.css({'background-color':'#88FF88'})

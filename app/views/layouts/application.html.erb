@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Projects</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<div class="container">
-    <div class="col-lg-10">
-    	<%= yield %>
-    </div>
-    <div class="col-lg-2" id="cart">
-    	<%= render @cart %>
-    </div>
-</div>
-
-</body>
+  <head>
+    <title>Projects</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-lg-10">
+       <%= yield %>
+       </div>
+       <% if @cart %>
+         <%= hidden_div_if(@cart.line_items.empty?, :id => 'cart', :class => 'col-lg-2') do %>
+         <%= render @cart %>
+       <% end %>
+     <% end %>
+   </div>
+  </body>
 </html>
