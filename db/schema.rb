@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140326184928) do
     t.datetime "updated_at"
     t.integer  "quantity",   default: 1
     t.decimal  "price"
+    t.integer  "order_id"
   end
 
   create_table "orders", force: true do |t|
@@ -34,7 +35,6 @@ ActiveRecord::Schema.define(version: 20140326184928) do
     t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "line_item_id"
   end
 
   create_table "products", force: true do |t|

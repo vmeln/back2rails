@@ -1,5 +1,5 @@
 class AddOrdersToLineItem < ActiveRecord::Migration
   def change
-  	add_reference :orders, :line_item
+  	add_reference :line_items, :order
   end
 end

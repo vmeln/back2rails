@@ -7,11 +7,12 @@
 	<table class="table">
 	  <%= render(cart.line_items) %>
 	  <tr>
-	  	<td colspan="2">Totalss</td>
+	  	<td colspan="2">Total</td>
 	  	<td><%= number_to_currency(cart.total_price) %></td>
 	  </tr>
 	</table>
 
-	<%= button_to 'Checkout', new_order_path, method: :get, :class => 'btn button_to' %>
+	<% disable_state = request.env['PATH_INFO'] == '/orders/new' %>
+	<%= button_to 'Checkout', new_order_path, method: :get, :class => 'btn button_to', disabled: disable_state %>
 	<%= button_to 'Empty cart', cart, :method => :delete, data: { confirm: 'Text' }, :class => 'btn btn-danger button_to', :remote => true %>
 <% end %>

@@ -1,8 +1,13 @@
 class LineItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :cart
+  belongs_to :order
 
   def total_price
-  	return self.price * quantity
+  	if !(price.nil? or quantity.nil?)
+		price * quantity
+	else 
+		0
+	end
   end
 end
