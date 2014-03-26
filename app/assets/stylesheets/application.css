@@ -2,6 +2,6 @@
  *= require_self
  *= require_tree .
  */
-.button_to {
+.button_to .button_to div .button_to .btn {
     display: inline;
 }

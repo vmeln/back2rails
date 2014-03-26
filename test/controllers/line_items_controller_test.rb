@@ -1,4 +1,4 @@
-require 'test_helper'
+equire 'test_helper'
 
 class LineItemsControllerTest < ActionController::TestCase
   test 'Should create line item' do

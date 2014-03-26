@@ -11,20 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311042840) do
+ActiveRecord::Schema.define(version: 20140326180208) do
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "line_items", force: true do |t|
-    t.integer  "product_id"
-    t.integer  "cart_id"
+# Could not dump table "line_items" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "orders", force: true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quantity",   default: 1
-    t.decimal  "price"
   end
 
   create_table "products", force: true do |t|
